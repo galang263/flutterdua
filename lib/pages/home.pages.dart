@@ -51,6 +51,13 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Masuk Latihan Dua'),
             ),
+            const SizedBox(height: 8),
+               ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/form_pages');
+              },
+              child: Text('form app'),
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_galang_12rpl1/pages/form_pages.dart';
 import 'package:flutter_galang_12rpl1/Row_column/ColumnWidget.dart';
 import 'package:flutter_galang_12rpl1/Row_column/LatihanDua.dart';
 import 'package:flutter_galang_12rpl1/Row_column/LatihanSatu.dart';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const columnWidget = '/ColumnWidget';
   static const latihanSatu = '/LatihanSatu';
   static const latihanDua = '/LatihanDua';
+  static const formPages = '/form_pages';
 
   static Map<String, WidgetBuilder> routes = {
     home: (context) => HomePage(),
@@ -24,5 +26,6 @@ class AppRoutes {
     columnWidget: (context) => ColumnWidget(),
     latihanSatu: (context) => LatihanSatu(),
     latihanDua: (context) => LatihanDua(),
+    formPages: (context) => FormApp(),
   };
 }
