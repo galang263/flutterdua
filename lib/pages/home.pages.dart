@@ -79,6 +79,27 @@ class HomePage extends StatelessWidget {
               },
               child: Text('Main'),
             ),
+            const SizedBox(height: 8),
+               ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/album-page');
+              },
+              child: Text('Fetch API'),
+            ),
+             const SizedBox(height: 8),
+               ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/post-page');
+              },
+              child: Text('Post Page'),
+            ),
+            const SizedBox(height: 8),
+               ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/photo-page');
+              },
+              child: Text('Photo Page'),
+            ),
           ],
         ),
       ),
