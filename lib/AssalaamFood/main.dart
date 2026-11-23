@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_galang_12rpl1/AssalaamFood/detail_screen.dart';
 
+
 void main() {
   runApp(const AssalaamFoodApp());
 }

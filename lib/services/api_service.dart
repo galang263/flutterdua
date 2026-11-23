@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../constants/api_constants.dart';
+import '../constant/api_constant.dart';
 import '../models/post.dart';
 import '../models/photo.dart';
 
@@ -32,7 +32,7 @@ class ApiService {
 
   Future<List<Photo>> fetchPhotos() async {
     final url = Uri.parse(
-      '${ApiConstants.baseUrl}${ApiConstants.imagesEndpoint}',
+      '${ApiConstants.baseUrl}${ApiConstants.commentsEndpoint}',
     );
 
     try {

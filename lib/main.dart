@@ -19,45 +19,67 @@ import 'package:flutter_galang_12rpl1/sized_expand_stack/Layout2.dart';
 import 'package:flutter_galang_12rpl1/sized_expand_stack/Layout4.dart';
 import 'package:flutter_galang_12rpl1/sized_expand_stack/SizedBoxWidget.dart';
 import 'package:flutter_galang_12rpl1/sized_expand_stack/StackWidget.dart';
+import 'pages/home_page.dart';
+import 'pages/login_page.dart';
+import 'services/auth_service.dart';
 
-void main() {
-  runApp(const MyApp());
+// void main() {
+//   runApp(const MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+  
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       initialRoute: '/',
+//       routes: AppRoutes.routes,
+//       // home: Scaffold(
+//       //   appBar: AppBar(
+//       //     backgroundColor: Colors.blue,
+//       //     centerTitle: true,
+//       //   ), 
+//       //   body: NavigatorWidget(),
+//       // ), //Scaffold
+//     ); //MaterialApp
+//   }
+// }
+
+// class HelloWidget extends StatelessWidget {
+//   const HelloWidget({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//      child: Text("Hello, Flutter!", style: TextStyle(
+//        fontSize: 24,
+//        fontWeight: FontWeight.bold,
+//        color: const Color.fromARGB(255, 2, 244, 196),
+//        backgroundColor: Colors.white,
+//      )),
+//     );
+//   }
+// }
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final token = await AuthService().getToken();
+  runApp(MyApp(isLoggedIn: token != null));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  
+  final bool isLoggedIn;
+  const MyApp({super.key, required this.isLoggedIn});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: AppRoutes.routes,
-      // home: Scaffold(
-      //   appBar: AppBar(
-      //     backgroundColor: Colors.blue,
-      //     centerTitle: true,
-      //   ), 
-      //   body: NavigatorWidget(),
-      // ), //Scaffold
-    ); //MaterialApp
-  }
-}
-
-class HelloWidget extends StatelessWidget {
-  const HelloWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-     child: Text("Hello, Flutter!", style: TextStyle(
-       fontSize: 24,
-       fontWeight: FontWeight.bold,
-       color: const Color.fromARGB(255, 2, 244, 196),
-       backgroundColor: Colors.white,
-     )),
+      home: isLoggedIn ? const HomePage() : const LoginPage(),
     );
   }
 }
